@@ -1,0 +1,30 @@
+server {
+  listen 8080;
+  
+  # __DOLLAR__DOMAIN_NAME = example.com
+  server_name $DOMAIN_NAME;
+  
+  location / {
+    root /var/www/frontend;
+    try_files __DOLLAR__uri /index.html;
+  }
+  
+  location /api {
+    proxy_read_timeout 1800;
+    proxy_connect_timeout 1800;
+    proxy_send_timeout 1800;
+    send_timeout 1800;
+    proxy_pass http://localhost:3000;
+    client_max_body_size 100M;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade __DOLLAR__http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_set_header        Host __DOLLAR__host;
+    proxy_set_header        X-Real-IP __DOLLAR__remote_addr;
+    proxy_set_header        X-Forwarded-For __DOLLAR__proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto __DOLLAR__scheme;
+    proxy_set_header X-Forwarded-Host __DOLLAR__host;
+    proxy_set_header X-Forwarded-Port __DOLLAR__server_port;
+  }
+
+}

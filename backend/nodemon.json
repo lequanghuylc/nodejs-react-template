@@ -1,0 +1,5 @@
+{
+    "ext": "ts",
+    "ignore": ["src/**/*.spec.ts"],
+    "exec": "NODE_PATH=./src ./node_modules/.bin/ts-node -- ./src/index.ts"
+}
