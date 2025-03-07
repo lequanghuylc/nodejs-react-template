@@ -24,4 +24,4 @@ nvm install
 npm i -g pm2 yarn
 yarn
 yarn build
-rm -rf /var/www/frontend && cp -r build /var/www/frontend
+rm -rf /var/www/frontend && cp -r dist /var/www/frontend
