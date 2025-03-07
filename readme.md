@@ -25,6 +25,12 @@ This sample is compatible with [c9sdk-pm2-nginx](https://github.com/lequanghuylc
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/EjubUu?referralCode=kmHOLH)
 
+or test local deployment using this command:
+
+```
+docker run --platform linux/amd64 --rm -p 8080:8080 -p 8081:8081 -e C9SDK_PASSWORD="123456" -e GIT_REPO="https://github.com/lequanghuylc/nodejs-react-template.git" -e GIT_BRANCH="main" lequanghuylc/c9sdk-pm2-ubuntu:railway
+```
+
 ## How to scale
 
 This repo can help you start quickly, and if the word `single container` scares you, please check [Railway docs](https://docs.railway.com/reference/scaling) about scaling. Basically it will automatically do Vertical Autoscaling, and if that is not enough, you can go further with Horizontal Scaling with Replicas.
